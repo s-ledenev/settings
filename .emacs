@@ -4,11 +4,12 @@
 (setq-default tab-width 4)
 (setq column-number-mode t)
 (setq indent-line-function 'insert-tab)
-(setq c-default-style "stroustup")
+(setq c-default-style "stroustrup")
 (setq scroll-conservatively most-positive-fixnum)
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
 (ido-mode 1)
+(defalias 'list-buffers 'ibuffer)
 
 (global-set-key [f12] 'eval-buffer)
 (global-set-key [f8] 'goto-line)
@@ -21,7 +22,9 @@
 (global-set-key [C-return] 'save-buffer)
 
 (desktop-save-mode 1)
+(delete-selection-mode 1)
 (global-auto-revert-mode 1)
+(tool-bar-mode -1)
 
 
 (custom-set-variables
