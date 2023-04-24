@@ -6,6 +6,9 @@
 (setq indent-line-function 'insert-tab)
 (setq c-default-style "stroustup")
 (setq scroll-conservatively most-positive-fixnum)
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+(ido-mode 1)
 
 (global-set-key [f12] 'eval-buffer)
 (global-set-key [f8] 'goto-line)
