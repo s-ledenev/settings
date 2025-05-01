@@ -1,3 +1,4 @@
+(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 (setq make-backup-files nil)
 (setq truncate-partial-width-windows nil)
 (setq-default indent-tabs-mode nil)
@@ -5,9 +6,12 @@
 (setq column-number-mode t)
 (setq indent-line-function 'insert-tab)
 (setq c-default-style "stroustrup")
+(setq c-basic-offset 4)
 (setq scroll-conservatively most-positive-fixnum)
 (setq ido-enable-flex-matching t)
-(setq ido-everywhere t)
+;;(setq ido-everywhere t)
+(setq transient-mark-mode t)
+(setq electric-indent-mode nil)
 (ido-mode 1)
 (defalias 'list-buffers 'ibuffer)
 
@@ -21,6 +25,17 @@
 (global-set-key [?\C-3] 'split-window-horizontally)
 (global-set-key [C-return] 'save-buffer)
 
+(define-key global-map [C-right] 'forward-word)
+(define-key global-map [C-left] 'backward-word)
+(define-key global-map [C-up] 'previous-blank-line)
+(define-key global-map [C-down] 'next-blank-line)
+(define-key global-map [home] 'beginning-of-line)
+(define-key global-map [end] 'end-of-line)
+(define-key global-map [pgup] 'forward-page)
+(define-key global-map [pgdown] 'backward-page)
+(define-key global-map [C-next] 'scroll-other-window)
+(define-key global-map [C-prior] 'scroll-other-window-down)
+
 (desktop-save-mode 1)
 (delete-selection-mode 1)
 (global-auto-revert-mode 1)
@@ -32,48 +47,27 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(default ((t (:foreground "#000000" :background "#ffffea"))))
+ '(highlight ((t (:foreground "##ffffea" :background "#eeee9e"))))
+ '(mode-line ((t (:inverse-video t))))
+ '(region ((t (:background "#eeee9e"))))
+
  '(c-tab-always-indent t)
+ '(column-number-mode t)
+ '(custom-enabled-themes nil)
  '(display-line-numbers t)
  '(safe-local-variable-values '((c-offsets-alist)))
  '(tab-bar-mode t)
- '(truncate-lines t)
- )
+ '(tab-bar-show nil)
+ '(tool-bar-mode nil)
+ '(truncate-lines t))
 
-;;(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
-;; '(default ((t (:family "Consolas" :foundry "outline" :slant normal :weight normal :height 113 :width normal)))))
-
-(custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
- '(default ((t (:foreground "#d3b58d" :background "#041818"))))
- '(custom-group-tag-face ((t (:underline t :foreground "lightblue"))) t)
- '(custom-variable-tag-face ((t (:underline t :foreground "lightblue"))) t)
- '(font-lock-builtin-face ((t nil)))
- '(font-lock-comment-face ((t (:foreground "#3fdf1f"))))
- '(font-lock-function-name-face ((((class color) (background dark)) (:foreground "white")))) 
- '(font-lock-keyword-face ((t (:foreground "white" ))))
- '(font-lock-string-face ((t (:foreground "#0fdfaf"))))
- '(font-lock-variable-name-face ((((class color) (background dark)) (:foreground "#c8d4ec"))))  
- '(font-lock-warning-face ((t (:foreground "#504038"))))
- '(highlight ((t (:foreground "navyblue" :background "darkseagreen2"))))
- '(mode-line ((t (:inverse-video t))))
- '(region ((t (:background "blue"))))
- '(widget-field-face ((t (:foreground "white"))) t)
- '(widget-single-line-field-face ((t (:background "darkgray"))) t))
- 
 (global-font-lock-mode 1)
-(set-cursor-color "lightgreen")
-(set-background-color "#072626")
-(global-set-key [C-return] 'save-buffer)
- 
-;(set-face-attribute 'default nil :font "Anonymous Pro-14")
-(set-face-attribute 'default nil :font "Consolas-11")
- 
-(set-face-foreground 'font-lock-builtin-face         "lightgreen")
 
+(set-background-color "#ffffea")
+;;(add-to-list 'default-frame-alist '(font . "Liberation Mono-11.5"))
+;;(set-face-attribute 'default t :font "Liberation Mono-11.5")
+;;(add-to-list 'default-frame-alist '(font . "Consolas-11"))
+;;(set-face-attribute 'default t :font "Consolas-11")
+(add-to-list 'default-frame-alist '(font . "Cascadia Mono-10"))
+(set-face-attribute 'default t :font "Cascadia Mono-10")
